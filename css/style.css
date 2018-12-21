@@ -1,0 +1,76 @@
+.svg{
+  opacity: 0;
+  z-index: -1;
+  position: absolute;
+}
+
+.underlay {
+  stroke-width: 7;
+  fill: rgba(255,255,255,.3);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke: #ffffff;
+}
+
+#circle-graph-1 {
+  stroke: url(#gradient-1);
+  stroke-width: 7;
+  fill: transparent;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.chart-circle {
+  -moz-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  -webkit-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+}
+
+
+.chart {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -400px;
+  width: 250px;
+}
+
+.chart-circle {
+  display: inline-block;
+  position: relative;
+}
+
+.chart-svg {
+  position: relative;
+  text-align: center;
+}
+.chart-svg p{
+  position: absolute;
+  text-align: center;
+  left: 50%;
+  top: 22px;
+  z-index: 2;
+  color: #fff;
+  margin-left: -10px;
+  font-size: 10px;
+  line-height: 12px;
+  letter-spacing: 1.2px;
+  font-weight: 300;
+}
+
+.circle-percentage {
+  position: absolute;
+  color: #FE18A3;
+  left: 50%;
+  top: 50%;
+  -moz-transform: translate(-50%, -6px);
+  -ms-transform: translate(-50%, -6px);
+  -webkit-transform: translate(-50%, -6px);
+  transform: translate(-50%, -6px);
+  z-index: 2;
+font-family: DINCondensed-Bold;
+font-size: 45px;
+text-shadow: 0 2px 4px rgba(0,0,0,0.50);
+}
+
