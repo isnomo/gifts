@@ -1,11 +1,12 @@
 (function () {
-
+    var productArr = []
     $(window).scroll(function () {
 
     });
 
     let winWidth = $(window).width()
     let winHeight = $(window).height()
+    console.log('设备尺寸：宽 ' + winWidth + '，高 ' + winHeight)
     if(winHeight / winWidth < 1.5){
         $('.gift-wrapper').addClass('onPc')
     }
@@ -14,7 +15,7 @@
         getList()        
         let timer = setInterval(() => {
             getList()
-        }, 5000);
+        },2000);
 
     })
 
@@ -30,8 +31,17 @@
                 let productHtml = ''
                 let itemList = res.data.prizes
                 // console.log(itemList)
+                // console.log('本地：' + productArr.length)
+                // console.log(res.data.remain_prize_id.length)
+                if(productArr.length == 1 && res.data.remain_prize_id.length == 20){
+                    // console.log('最后一次扫描')
+                    // return false
+                    productArr = []
+                }else{
+                    productArr = res.data.remain_prize_id
+                }
                 itemList.map(item => {
-                    if(res.data.remain_prize_id.indexOf(item.prize_id) > -1){
+                    if(productArr.indexOf(item.prize_id) > -1){
                         productHtml += `<div class="gift-item" style="background-image:url('${item.cover}')">
                                         <div class="gift-qrcode">
                                             <img src="${item.qrcode}" alt="">
@@ -47,8 +57,8 @@
                 $('#giftProduct').html(productHtml);
             },
             error: function (XMLHttpRequest, textStatus, errorThrown) {
-                alert("加载失败，请检查网络后重试。");
-                // console.log(response.code);
+                // alert("加载失败，请检查网络后重试。");
+                console.log(response.code);
             }
         });
     }

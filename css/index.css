@@ -30,7 +30,7 @@
 .gift-qrcode{
     text-align: center;
     position: absolute;
-    bottom: 5px;
+    bottom: 5%;
     left: 50%;
     transform: translateX(-50%);
 }
@@ -39,7 +39,7 @@
 }
 .gift-soldOut{
     position: absolute;
-    bottom: 15px;
+    bottom: 7%;
     left: 50%;
     transform: translateX(-50%);
     width: 30px;
@@ -49,10 +49,10 @@
 }
 
 .sell-wrapper{
-    
+    text-align: center;
 }
 .sell-wrapper img{
-    width: 100%;
+    width: 90%;
 }
 .sell-wrapper h3{
     font-size: 16px;
