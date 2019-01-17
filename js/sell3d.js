@@ -96,11 +96,20 @@
     // var helper = new THREE.AxesHelper(50);
     // scene.add(helper);
 
-    let daeUrl = 'dae/3/item.dae'
+    if(urltype == '2' || urltype == '7' || urltype == '14'){
+      scaleNum = .015
+    }else if(urltype == '20'){
+      scaleNum = .15
+    }
+    // let daeUrl = 'dae/' + urltype + '/item.dae'
+    let daeUrl = 'http://plgu2gwhm.bkt.clouddn.com/dae/'+ urltype +'/item.dae'
     var loader = new THREE.ColladaLoader();
     var mesh;
     loader.load( daeUrl, function (result) {
-      document.getElementsByClassName('loading')[0].style.display = 'none';
+      setTimeout(()=>{
+        document.getElementsByClassName('loading')[0].style.display = 'none';
+      },300)
+      
       // mesh = result.scene.children[0].clone();
       mesh = result.scene
       console.log(result)
