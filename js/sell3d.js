@@ -95,11 +95,16 @@
     //辅助工具  显示线
     // var helper = new THREE.AxesHelper(50);
     // scene.add(helper);
-
-    if(urltype == '2' || urltype == '7' || urltype == '14'){
+    
+    let bigItem = ['3','6','13','16','19','21','23']
+    let middleItem = ['20']
+    let smallItem = ['2','7','14']
+    if(smallItem.indexOf(urltype) > -1){
       scaleNum = .015
-    }else if(urltype == '20'){
+    }else if(middleItem.indexOf(urltype) > -1){
       scaleNum = .15
+    }else if(bigItem.indexOf(urltype) > -1){
+      scaleNum = .8
     }
     // let daeUrl = 'dae/' + urltype + '/item.dae'
     let daeUrl = 'http://plgu2gwhm.bkt.clouddn.com/dae/'+ urltype +'/item.dae'
