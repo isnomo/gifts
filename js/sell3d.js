@@ -15,8 +15,8 @@
       cache: false,
       success: function (res) {
         console.log(res)
-        let itemImg = res.data
-        let sellHtml = ''
+        // let itemImg = res.data
+        // let sellHtml = ''
         // if (itemImg == 'system busyness.') {
         //   // alert("该商品已被领取，请扫描其他商品二维码！");
         //   sellHtml = `<h3>该商品已被领取，请扫描其他商品二维码！</h3>`
@@ -33,11 +33,11 @@
   }
 
   window.onload = () => {
-    if(urltype){
+    if(urltype && urltype < 24){
       draw()
-      // getSell(urltype)
+      getSell(urltype)
     }else{
-      // alert("未获取到数据，请稍候重试！");
+      alert("未获取到数据，请稍候重试！");
     }
   }
 
