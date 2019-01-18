@@ -53,7 +53,12 @@
   var camera;
   function initCamera() {
     camera = new THREE.PerspectiveCamera(40, window.innerWidth / window.innerHeight, 0.1, 1000);
-    camera.position.set(0, 0, 50);
+    
+    if(urltype == '11'){
+      camera.position.set(0, 20, 50);
+    }else{
+      camera.position.set(0, 0, 50);
+    }
     camera.lookAt(new THREE.Vector3(0, 0, 0));
   }
 
@@ -91,29 +96,32 @@
 
   function initModel() {
     // Heineken Jager 0.015  
-    let scaleNum = .5
+    let scaleNum = .7
     //辅助工具  显示线
     // var helper = new THREE.AxesHelper(50);
     // scene.add(helper);
-    
-    let bigItem = ['3','6','13','16','19','21','23']
-    let middleItem = ['20']
-    let smallItem = ['2','7','14']
+    let biggerItem = ['6','13','19']
+    let bigItem = ['1','3','4','16','21','23']
+    let middleItem = ['20','14']
+    let smallItem = ['2']
     if(smallItem.indexOf(urltype) > -1){
       scaleNum = .015
     }else if(middleItem.indexOf(urltype) > -1){
-      scaleNum = .15
+      scaleNum = .2
     }else if(bigItem.indexOf(urltype) > -1){
-      scaleNum = .8
+      scaleNum = 1.1
+    }else if(biggerItem.indexOf(urltype) > -1){
+      scaleNum = 1.5
     }
     // let daeUrl = 'dae/' + urltype + '/item.dae'
-    let daeUrl = 'http://plgu2gwhm.bkt.clouddn.com/dae/'+ urltype +'/item.dae'
+    // let daeUrl = 'http://plgu2gwhm.bkt.clouddn.com/dae/'+ urltype +'/item.dae'
+    let daeUrl = 'http://stoyard-lzlj.oss-cn-beijing.aliyuncs.com/dae/'+ urltype +'/item.dae'
     var loader = new THREE.ColladaLoader();
     var mesh;
     loader.load( daeUrl, function (result) {
       setTimeout(()=>{
         document.getElementsByClassName('loading')[0].style.display = 'none';
-      },300)
+      },600)
       
       // mesh = result.scene.children[0].clone();
       mesh = result.scene
@@ -152,8 +160,8 @@
     //是否可以缩放
     controls.enableZoom = false;
     //是否自动旋转
-    controls.autoRotate = true;
-    controls.autoRotateSpeed = 2;
+    controls.autoRotate = false;
+    // controls.autoRotateSpeed = 2;
     //设置相机距离原点的最远距离
     controls.minDistance = 1;
     //设置相机距离原点的最远距离
