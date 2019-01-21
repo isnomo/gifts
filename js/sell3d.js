@@ -84,7 +84,7 @@
     scene.add(new THREE.AmbientLight(0xcccccc));
     // scene.add(new THREE.AmbientLight(0xffffff));
 
-    light = new THREE.PointLight(0xffffff, .5);
+    light = new THREE.PointLight(0xffffff, .3);
     light.position.set(50, 50, 50);
 
     //告诉平行光需要开启阴影投射
